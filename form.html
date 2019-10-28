@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> jo50 RSVP - Josephines' 50<sup>th</sup> Birthday Celebration!</title>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+
+
+<style>
+
+body, html {
+	margin: 0;
+	padding: 0;
+	font-family: "Raleway", sans-serif;
+	width: 100%;
+	text-align: center;
+	background-color: rgba(242,225,225,1);
+}
+
+	form {
+		background-color: rgba(255, 115, 115, 0.35);
+		padding:75px 50px;
+		max-width:600px;
+		margin-left:auto;
+		margin-right:auto;	
+		margin-top: 25px;
+		box-shadow: 0px 0px 50px rgb(92, 92, 92);
+		
+	}
+	.group {		
+		text-align: center;
+  		width: 45%;  
+		
+  	}
+	#yesGroup{
+		float: left;
+		
+	}
+	#noGroup{
+		float: right;
+    	
+	}
+	#guestPanel, #tyPanel{
+		padding: 5px;
+		width: 200%;
+		transition:  1s ease-in-out;
+	}
+	#guestPanel{
+		margin-left: 5%;
+		
+	}
+	#tyPanel{
+		margin-left:-108%;
+		margin-top:10px;
+	}
+
+
+#guestPanel{
+  visibility: hidden;
+  height: 0px;
+  opacity: 0;
+}
+#tyPanel{  
+  visibility: hidden;
+  height: 0px;
+  opacity: 0;
+}
+
+#toggle1:checked~#guestPanel {
+  visibility: visible;
+  height: 120px;
+  display: block;  
+  opacity: 1;
+}
+#toggle2:checked~#tyPanel {
+  visibility: visible;
+  height: 120px;
+  display: block;
+  opacity: 1;
+}
+
+.name, .email, .phone {
+  width: 100%;
+  height: 50px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  margin: 2px;
+}
+textarea {
+  width: 100%;
+  height: 200px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+fieldset, .form-input {
+	border: none;
+}
+.btnPanel{
+	width: 100%;
+	text-align: center;
+}
+.form-button{
+	width: 48%;
+	height: 70px;
+	border: none;
+	margin: 10px auto;
+	background-color: #a84f49;
+	border-radius: 3px;
+	color: #FFFFFF;
+	
+	font-size: 1.5em;
+}
+.form-button:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	background-color: #e0c369;
+	color: black;
+}
+.guestRadioSelect{
+	margin: 0 20px;
+}
+.one{
+	margin-left: 0;
+}
+
+@media screen and  (max-width: 415px){
+	body{
+		width: 100vw;
+	}
+	form{
+		width: 95%;
+		padding: 50px 5px;
+	}
+	#guestPanel{
+		margin-left: 10%;
+	}
+	#tyPanel{
+		margin-left: -117%;
+    	margin-top: 10px;
+	}
+	#yesGroup{
+		float: left;
+		width: 40%;
+	}
+	#noGroup{
+		float: right;
+    	width: 40%;
+	}
+	
+	#guestPanel{
+		visibility: hidden;
+		height: 0px;
+	}
+	#tyPanel{  
+		visibility: hidden;
+		height: 0px;
+	}
+
+	#toggle1:checked~#guestPanel {
+		visibility: visible;
+		height: 130px;
+		display: block;
+	
+	}
+	#toggle2:checked~#tyPanel {
+		visibility: visible;
+		height: 130px;
+		display: block;
+	
+	}
+}
+
+
+</style>
+</head>
+<body>
+		
+
+
+
+<form class="formStyle" action="mymail.php" method="POST">
+
+		<div class="formTitle">
+				<h1 class="title">Josephines' 50<sup>th</sup> Birthday Celebration!</h1>
+			</div>
+			<p class="description">
+				<em><strong>We really hope you can make it.</strong></em>
+			</p>
+
+<input class="form-input name" type="text" name="name" placeholder="Full Name">
+<input class="form-input email" type="text" name="email" placeholder="Email">
+<input class="form-input phone" type="tel" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="4164440000">
+
+
+
+<h4>Will you be attending?</h4>
+
+<fieldset id="yesGroup" class="group">
+<input type="radio" id="toggle1" name="attending" value="YES">YES
+
+	<div class="panels" id="guestPanel" >
+			<h4>How many guest(s) will be in your group?</h4>
+
+		<input type="radio" class="guestRadioSelect one" name="guest" value="1">1
+		<input type="radio" class="guestRadioSelect" name="guest" value="2">2
+		<input type="radio" class="guestRadioSelect" name="guest" value="3">3
+		<input type="radio" class="guestRadioSelect" name="guest" value="4">4
+	</div>
+
+</fieldset>
+
+<fieldset id="noGroup" class="group">
+<input type="radio" id="toggle2" name="attending" value="NO">NO
+
+  <div class="panels" id="tyPanel"  ><h3>Sorry to hear that, the party won't be the same without you.</h3></div>
+  
+</fieldset>
+
+
+<textarea name="message" rows="6" cols="25" placeholder="Your message here"></textarea><br />
+
+<!--<input type="submit" value="Submit"><input type="reset" value="Reset">-->
+<div class="btnPanel">
+		<input class="form-button submit" type="submit" value="Submit">
+		<input class="form-button reset" type="reset" value="Reset">
+	</div><br><br>
+
+</form>
+
+</body>
+
+</html>
